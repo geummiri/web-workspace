@@ -16,11 +16,11 @@ public class PrintHeaderServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//한글처리 양방향으로 해주기
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		System.out.println("do get~~~~");
+//		System.out.println("do get~~~~");
 		
 		PrintWriter out = response.getWriter();
 		out.println("<h2>여기는 doGet입니다.</h2>");
@@ -30,7 +30,8 @@ public class PrintHeaderServlet2 extends HttpServlet {
 			String key = en.nextElement();
 			String value =request.getHeader(key);
 			out.println("<p>key : " + key +", value : " + value + "</p>");
-		}	out.close();
+		}	
+		out.close();
 		
 		
 		

@@ -16,7 +16,7 @@ public class PrintHeaderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.err.println("service~~~~");
+		System.out.println("service~~~~");
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		//한글처리
@@ -28,15 +28,15 @@ public class PrintHeaderServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		System.err.println("do get~~~~");
+		System.out.println("do get~~~~");
 		
 		PrintWriter out = response.getWriter();
 		out.println("<h2>여기는 doGet입니다.</h2>");
 		
 		
 		//header정보 가져오기
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		//key들로만 가지고 있음/모든 헤더(header) 이름들을 가져오는 메서드/ getHeaderNames()
 		//Enumeration : 컬렉션에 저장된 요소들을 반복하여 가져올 수 있는 방법을 제공
 		// 모든 헤더의 이름들을 순회하고 확인할 수 있음
