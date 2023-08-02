@@ -23,34 +23,38 @@ public class ConfigServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private int count=0;
-	private String path = "d:\\test\\count2.txt";
+	private String path;
+	//path 값은 web.xml 파일에 init-param 값으로 넘겨줌
+	//구동하기 시작하면 xml 부터 자동으로 시작됨
 	
-	//1. ServletConfig의 기능을 사용해서 path에 연결된 값을 받아온다.
+	//1. ServletConfig의 기능을 사용해서 path에 연결된 값을 받아온다. -> web.xml 36,37번째줄
 	//2. BufferedReader, FileWriter를 사용해서 파일을 읽어들인다.
 	//3. count값으로 필드 초기화
+	
 	public void init(ServletConfig config) throws ServletException {
 		
+		//1. ServletConfig의 기능을 사용해서 path에 연결된 값을 받아온다.
+		path = config.getInitParameter("path");
+		
 		try {
+			//2. BufferedReader, FileWriter를 사용해서 파일을 읽어들인다.
+			//BufferedReader : 입력 스트림은 외부 데이터 소스로부터 데이터를 읽어오는데 사용되는 객체
 			BufferedReader br = new BufferedReader(new FileReader(path));
-			String str = br.readLine();
-			count = Integer.parseInt(str);
+			//3. count값으로 필드 초기화
+			count = Integer.parseInt(br.readLine()); 
+			//count는 숫자이고 readLine은 문자열을 읽어주는것이기 때문에 Integer 사용
 			br.close();
 			System.out.println("count2.txt 파일의 내용을 읽어들임.. count ::" + count);
-			
 		} catch (IOException e) {
 			System.out.println("파일 읽기 실패ㅠㅠ");
-			
 		}
-		
-		
 	}
-
-	
-	//4. PrintWriter, FileWriter 사용해서 count값 저장
+		
 		public void destroy() {
+			//4. PrintWriter, FileWriter 사용해서 count값 저장
 			File file = new File(path);
-			
 			file.getParentFile().mkdirs();
+			
 			try {
 				PrintWriter pw = new PrintWriter(new FileWriter(file));
 				pw.println(count);
