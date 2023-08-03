@@ -33,8 +33,8 @@
     <servlet-name>ConfigServlet2</servlet-name>
     <servlet-class>servlet.config.ConfigServlet2</servlet-class>
  	<init-param>
- 		<init-name>path</init-name>
- 		<init-value>d:\\test\\count2.txt</init-value>
+ 		<param-name>path</param-name>
+ 		<param-value>d:\\test\\count2.txt</param-value>
  	</init-param>
   </servlet>
   <servlet-mapping>
