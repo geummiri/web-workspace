@@ -70,6 +70,7 @@ public class MemberDAO implements MemberDAOTemplate{
 	
 	@Override
 	public void insertMember(MemberVO vo) throws SQLException {
+		
 		Connection conn = getConnection();
 		
 		String query = "INSERT INTO MEMBER(NAME, AGE,ADDR) VALUES (?, ?, ?)";
@@ -87,31 +88,64 @@ public class MemberDAO implements MemberDAOTemplate{
 	@Override
 	public ArrayList<MemberVO> showAllMember() throws SQLException {
 		Connection conn = getConnection();
+//		
+//		PreparedStatement ps = conn.prepareStatement(p.getProperty("showAllMember"));
+//		ResultSet rs = ps.executeQuery();
+//		
+//		ArrayList<MemberVO> memberList = new ArrayList<>();
+//		while(rs.next()) {
+//			MemberVO vo = new MemberVO();
+//			vo.setName(rs.getString("name"));
+//			vo.setAge(rs.getInt("age"));
+//			vo.setAddr(rs.getString("addr"));
+//			memberList.add(vo);
+//		}
+//		closeAll(rs,ps,conn);
+//		
+//		return memberList;
+		// 3. Statement 객체 생성
+		String query = "SELECT * FROM MEMBER";
+		PreparedStatement ps = conn.prepareStatement(query);
 		
-		PreparedStatement ps = conn.prepareStatement(p.getProperty("showAllMember"));
+		// 4. 쿼리문 실행
+		ArrayList<MemberVO> list = new ArrayList<>();
 		ResultSet rs = ps.executeQuery();
-		
-		ArrayList<MemberVO> memberList = new ArrayList<>();
 		while(rs.next()) {
-			MemberVO vo = new MemberVO();
-			vo.setName(rs.getString("name"));
-			vo.setAge(rs.getInt("age"));
-			vo.setAddr(rs.getString("addr"));
-			memberList.add(vo);
+			list.add(new MemberVO(rs.getString("name"), 
+					rs.getInt("age"), rs.getString("addr")));
 		}
-		closeAll(rs,ps,conn);
 		
-		return memberList;
+		closeAll(rs, ps, conn);
+		return list;
+		
+		
 	}
 
 	@Override
 	public MemberVO findByNameMember(String name) throws SQLException {
-		Connection conn = getConnection();
-		String query = "SELECT NAME FROM MEMBER WHERE NAME = ?";
-		PreparedStatement ps = conn.prepareStatement(query);
 		
+		Connection conn = getConnection();
+//		String query = "SELECT NAME FROM MEMBER WHERE NAME = ?";
+//		PreparedStatement ps = conn.prepareStatement(query);
+//		
+//		ResultSet rs = ps.executeQuery();
+//		return (MemberVO) rs;
+		// 3. Statement 객체 생성
+		String query = "SELECT * FROM MEMBER WHERE NAME=?";
+		PreparedStatement ps = conn.prepareStatement(query);
+		ps.setString(1, name);
+		
+		// 4. 쿼리문 실행
+		MemberVO vo = null;
 		ResultSet rs = ps.executeQuery();
-		return (MemberVO) rs;
+		if(rs.next()) {
+			vo = new MemberVO(rs.getString("name"), 
+					rs.getInt("age"), rs.getString("addr"));
+		}
+		
+		closeAll(rs, ps, conn);
+		return vo;
+		
 	}
 	
 	

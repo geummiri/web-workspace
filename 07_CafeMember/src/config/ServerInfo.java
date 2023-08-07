@@ -1,4 +1,4 @@
-package config;
+package servlet.config;
 
 public interface ServerInfo {
 	
