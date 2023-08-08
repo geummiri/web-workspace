@@ -48,4 +48,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindMemberServlet</display-name>
+    <servlet-name>FindMemberServlet</servlet-name>
+    <servlet-class>servlet.controller.FindMemberServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindMemberServlet</servlet-name>
+    <url-pattern>/FindMemberServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
