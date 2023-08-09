@@ -14,7 +14,7 @@ import servlet.model.vo.MemberDTO;
 
 public class MemberDAO implements MemberDAOTemplate{
 
-	//싱글톤 패턴 - 클래스의 객체가 항상 하나만 존재하도록
+	//싱글톤 패턴 - 클래스의 객체가 항상 하나만 존재하도록 static!!!
 	
 	/*
 	 * DAO를 반복적으로 생성하고 해제하는 것은 비효율적
