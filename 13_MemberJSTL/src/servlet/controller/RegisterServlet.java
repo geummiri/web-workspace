@@ -1,6 +1,7 @@
 package servlet.controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import servlet.model.dao.MemberDAO;
 import servlet.model.vo.MemberDTO;
+
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,11 +30,11 @@ public class RegisterServlet extends HttpServlet {
 	String address = request.getParameter("address");
 	
 	//2. 객체 생성 후 폼값 담기
-	MemberDTO dto1 = new MemberDTO();
-	dto1.setId(id);
-	dto1.setPassword(password);
-	dto1.setName(name);
-	dto1.setAddress(address);
+	MemberDTO dto = new MemberDTO();
+	dto.setId(id);
+	dto.setPassword(password);
+	dto.setName(name);
+	dto.setAddress(address);
 	
 	try {
 	//3. DAO와 연결해주기

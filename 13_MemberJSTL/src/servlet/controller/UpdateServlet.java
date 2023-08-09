@@ -18,8 +18,6 @@ import servlet.model.vo.MemberDTO;
 public class UpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	
-	private ServletContext context;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//update 쿼리 작성
@@ -30,21 +28,24 @@ public class UpdateServlet extends HttpServlet {
 		
 		
 		MemberDTO dto = new MemberDTO();
+		dto.setId(id);
 		dto.setPassword(password);
 		dto.setName(name);
 		dto.setAddress(address);
-		dto.setId(id);
 		
 		try {
-			
 			MemberDAO.getInstance().UpdateServlet(dto);
 			
-			context = getServletContext();
-			context.setAttribute("dto", dto);
+			HttpSession session = request.getSession();
+			if(session.getAttribute("dto")!=null) {
+				session.setAttribute("dto", dto);
+			};
 			
-			response.sendRedirect("views/update_result.jsp");
-			context.setAttribute("dto", dto);
+//			response.sendRedirect("views/update_result.jsp");
+			request.getRequestDispatcher("views/update_result.jsp").forward(request, response);
 		} catch (SQLException e) {
+			
+//			request.getRequestDispatcher("views/login.html").forward(request, response);
 			e.printStackTrace();
 		}
 	

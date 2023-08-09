@@ -9,15 +9,13 @@
 </head>
 <body>
 
-	<body>
-	
+	<h2>회원 정보 수정</h2>
 	<form action="/UpdateServlet" method="post">
 		ID : <input type="text" value="${dto.id}" name="id" readonly> <br>
-		PW : <input type="password" value="${dto.password}" name="pw"> <br>
-		이름 : <input type="text" value="${dto.name}" name="name"> <br>
-		주소 : <input type="text" value="${dto.address}" name="addr"> <br>
-		
-		<input type="submit" value="send">
+		PASSWORD : <input type="password" value="${dto.password}" name="password"> <br>
+		NAME : <input type="text" value="${dto.name}" name="name"> <br>
+		ADDRESS : <input type="text" value="${dto.address}" name="address"> <br>
+		<input type="submit" value="정보수정">
 	</form>
 	
 </body>

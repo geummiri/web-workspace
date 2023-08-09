@@ -9,20 +9,23 @@
 </head>
 <body>
 	
-	<c:choose>
-	<c:when test="${dto.id ne null}">
-	<h1>로그인 정보</h1>
+<c:choose>
+<c:when test="${!empty dto}">
+	
+	<h1>수정 정보</h1>
 	<ul>
 		<li>${dto.id} 님의 정보를 수정했습니다.</li>
 	</ul>
 	<a href="/index.jsp">첫 페이지로 이동</a>
-	</c:when>
-	<c:otherwise>
+	
+</c:when>
+<c:otherwise>
+
 	<h3>수정실패</h3>
 	<a href="/login.html">login.html</a>
-	</c:otherwise>
-</c:choose>
 	
+</c:otherwise>
+</c:choose>
 	
 </body>
 </html>
