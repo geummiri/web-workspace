@@ -12,23 +12,26 @@ import servlet.model.vo.MemberVO;
 public class RegisterController implements Controller {
 
 	public ModelAndView handle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		//1.폼값 4개 받아오기
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
 		String address = request.getParameter("address");
 		
-		String path = "index.jsp";
-		
+		//2.폼값 4개 vo에 넣어주기
 		MemberVO vo = new MemberVO(id, password, name, address);
 		MemberDAO.getInstance().registerMember(vo);
+		//데이터 바인딩 안해도 됨
+		//회원가입만 하고 로그인은 따로 하겠다 라는 뜻! 
+		//session 작성해주면 바로 로그인 되어있는 상태로 넘어감
+		String path = "index.jsp";
 		
-		HttpSession session = request.getSession();
-		
-		if(session!=null) {
-			session.setAttribute("vo", vo);
-			path = "/index.jsp";
-		}
+//		HttpSession session = request.getSession();
+//		
+//		if(session!=null) {
+//			session.setAttribute("vo", vo);
+//			path = "/index.jsp";
+//		}
 		
 		return new ModelAndView(path);
 	}

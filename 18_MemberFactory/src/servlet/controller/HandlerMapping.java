@@ -9,7 +9,7 @@ import servlet.controller.component.UpdateController;
 
 //Factory 라는 이름을 지었지만 Handler와 동일
 public class HandlerMapping {
-	
+	//싱글톤 패턴 작성해주기
 	private static HandlerMapping handler = new HandlerMapping();
 	private HandlerMapping() {}
 	
