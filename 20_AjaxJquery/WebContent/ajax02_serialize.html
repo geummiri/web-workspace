@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+	<h2>Register Form ..</h2>
+	<form id="frm">
+		NAME : <input type="text" name="name" id="name"><br>
+		ADDR : <input type="text" name="addr" id="addr"><br>
+		<input type="button" value="가입" id="regBtn">
+	</form>
+	
+	<div id="regView"></div>
+	<!-- post방식/ SerialAjax -->
+	
+	<script>
+	$('#regBtn').click(function(){
+		const name = $('#name').val();
+		const addr = $('#addr').val();
+		
+		$.ajax({
+			type : "post",
+			url : "SerialAjax",
+			data : $('#frm').serialize(),
+				//한개씩 객체 불러오기 번거로우므로 serialize로 한번에 불러올수있음
+				//"name="+name+"&addr="+addr,
+			
+			success : function(result){
+				$('#regView').html(result).css({
+					'background':'blue',
+					'color' : 'red'
+				});
+			}
+		})
+	});
+	
+	
+	</script>
+</body>
+</html>
