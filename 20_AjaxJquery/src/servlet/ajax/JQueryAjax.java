@@ -27,11 +27,11 @@ public class JQueryAjax extends HttpServlet {
 		String pass = request.getParameter("pass");
 		
 		//에러 발생할 수 있도록 응답 지연하기
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		
 		//실제 응답이 이뤄지는 부분
 		PrintWriter out = response.getWriter();
