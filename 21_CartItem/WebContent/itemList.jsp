@@ -6,41 +6,56 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
-  
     <meta charset="UTF-8" />
     <title>Insert title here</title>
     <style>
-    
- 
-     
      img {
-   	  width: 50px;
-      height: 50px;
+   	 width: 150px;
+     height: 150px;
+     object-fit : cover;
      }
      
      h1 {
-   		text-align : center;
+   	 text-align : center;
      }
      
-     form {
-   	  display:flex;
-     	 justify-content:center;
-   		  align-items:center;
+     #container {
+     display :flex;
+     justify-content :center;
      }
-     
+    
+    
     </style>
   </head>
   <body>
     <h1>Fruit Total List</h1>
-    <form>
-    	<c:forEach items="${list}" var="item">
+    <div id="container">
+   		<c:forEach items="${list}" var="item">
+		
 		<div>
-		<a href=itemView.do><img src="${item.pictureUrl}"></a>
-		${item.itemName}
-		${item.price}
+			<a href="itemView.do?id=${item.itemId}">
+			<img src="${item.pictureUrl}"></a>
+			<p>${item.itemName}</p>
+			<p>${item.price}</p>
 		</div>
+		
 		</c:forEach>
-  
-    </form>
+    </div>
+   	<hr>
+   	<h1>오늘 본 상품들</h1>
+   	 <div id="container">
+   	<c:if test="${not empty fruits}">
+ 	
+   	<table>
+   		<c:forEach items="${fruits}" var = "fruit">
+   		<td>
+   		 <img src="${fruit}" >
+   		 </td>
+   		</c:forEach>
+   	</table>
+   	
+   	</c:if>
+   	</div>
+
   </body>
 </html>

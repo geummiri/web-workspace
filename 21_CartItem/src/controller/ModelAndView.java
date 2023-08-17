@@ -11,7 +11,7 @@ public class ModelAndView {
 	public ModelAndView(String path) {
 		super();
 		this.path = path;
-	}
+	} //path만 담는 경우 필요함
 
 
 	public ModelAndView(String path, boolean isRedirect) {

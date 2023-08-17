@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,6 +20,20 @@ public class ItemListController implements Controller{
 		request.setAttribute("list", list);
 		
 		String path = "itemList.jsp";
+		
+		
+		ArrayList<String> fruits = new ArrayList<>();
+		//쿠키정보 받아오는 로직
+		Cookie[] cs = request.getCookies();
+		if(cs!=null) {
+			for(Cookie c: cs) {
+				if(c.getName().startsWith("fruit-")) {
+					fruits.add(c.getValue());
+				}
+			}
+		}
+		
+		request.setAttribute("fruits", fruits);
 		
 		return new ModelAndView(path);
 	}

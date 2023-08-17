@@ -12,7 +12,7 @@ import config.ServerInfo;
 
 public class ItemDAO implements ItemDAOTemplate{
 
-	
+//싱글톤 패턴 작성해주기	
 	private static ItemDAO dao = new ItemDAO();
 	
 	private ItemDAO() {
@@ -54,23 +54,25 @@ public class ItemDAO implements ItemDAOTemplate{
 		
 		ResultSet rs = ps.executeQuery();
 		
-		ArrayList<Item> itemList = new ArrayList<>();
+		ArrayList<Item> list = new ArrayList<>();
 		
+//		while(rs.next()) {
+//			Item item = new Item(Integer.parseInt(rs.getString("item_Id")),
+//					rs.getString("item_Name"),
+//					Integer.parseInt(rs.getString("price")),
+//					rs.getString("description"),
+//					rs.getString("picture_Url"),
+//					Integer.parseInt(rs.getString("count")));
+//			list.add(item);
+//		}
+		//변수명 적지 않고 숫자로 적어도 가능
 		while(rs.next()) {
-			Item item = new Item(Integer.parseInt(rs.getString("item_Id")),
-					rs.getString("item_Name"),
-					Integer.parseInt(rs.getString("price")),
-					rs.getString("description"),
-					rs.getString("picture_Url"),
-					Integer.parseInt(rs.getString("count")));
-				
-			itemList.add(item);
+			list.add(new Item(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4),rs.getString(5),rs.getInt(6)));
 		}
 		
 		closeAll(rs,ps,conn);
 		
-		
-		return itemList;
+		return list;
 	}
 
 	@Override
@@ -102,8 +104,20 @@ public class ItemDAO implements ItemDAOTemplate{
 
 	@Override
 	public boolean updateRecordCount(int itemId) throws SQLException {
+		Connection conn = getConnection();
 		
-		return false;
+		String query = "UPDATE ITEM SET COUNT=COUNT+1 WHERE ITEM_ID=?";
+		PreparedStatement ps = conn.prepareStatement(query);
+		ps.setInt(1, itemId);
+		
+		int row = ps.executeUpdate();
+		
+		boolean result = false;
+		if(row > 0) result= true;
+		
+		closeAll(ps, conn);
+	 	
+		return result;
 	}
 	
 }
