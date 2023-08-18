@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import config.ServerInfo;
 import servlet.model.vo.MemberDTO;
 
-
-
 public class MemberDAO implements MemberDAOTemplate{
 
 	//싱글톤 패턴 - 클래스의 객체가 항상 하나만 존재하도록
@@ -202,6 +200,12 @@ public class MemberDAO implements MemberDAOTemplate{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void UpdateServlet(MemberDTO dto) throws SQLException {
+		// TODO Auto-generated method stub
+		
 	}
 }
 	
