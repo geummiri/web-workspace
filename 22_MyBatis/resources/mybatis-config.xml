@@ -3,7 +3,7 @@
 <configuration>
 	<!-- 따로 작성했던 config 들을 mybatis property에 바로 작성할 수 있음 -->
 	<properties>
-		<property name="driver" value="orcle.jdbc.driver.OracleDriver"/>
+		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:ex"/>
 		<property name="username" value="sample"/>
 		<property name="password" value="SAMPLE"/>

@@ -30,9 +30,24 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>WebContent/WEB-INF/lib/jstl.jar</name>
+			<type>1</type>
+			<location>C:/Users/user1/Downloads/jstl.jar</location>
+		</link>
+		<link>
 			<name>WebContent/WEB-INF/lib/mybatis-3.5.13.jar</name>
 			<type>1</type>
 			<location>C:/Users/user1/Downloads/mybatis-3.5.13.jar</location>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/ojdbc8.jar</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/WINDOWS.X64_193000_db_home/jdbc/lib/ojdbc8.jar</locationURI>
+		</link>
+		<link>
+			<name>WebContent/WEB-INF/lib/standard.jar</name>
+			<type>1</type>
+			<location>C:/Users/user1/Downloads/standard.jar</location>
 		</link>
 	</linkedResources>
 	<filteredResources>
