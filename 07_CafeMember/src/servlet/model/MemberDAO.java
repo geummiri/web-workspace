@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import config.ServerInfo;
+import servlet.config.ServerInfo;
 
 public class MemberDAO implements MemberDAOTemplate{
 	
