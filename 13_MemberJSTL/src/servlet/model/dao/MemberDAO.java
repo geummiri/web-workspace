@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import config.ServerInfo;
 import servlet.model.vo.MemberDTO;
 
-
-
 public class MemberDAO implements MemberDAOTemplate{
 
 	//싱글톤 패턴 - 클래스의 객체가 항상 하나만 존재하도록
@@ -72,7 +70,7 @@ public class MemberDAO implements MemberDAOTemplate{
 	public void registerMember(MemberDTO dto) throws SQLException {
 		Connection conn = getConnection();
 		
-		String query = "INSERT INTO MEMBER(ID, PASSWORD, NAME, ADDRESS) VALUES(?, ?, ?, ?)";
+		String query = " INTO MEMBER(ID, PASSWORD, NAME, ADDRESS) VALUES(?, ?, ?, ?)";
 		//객체생성하는 statement 사용하기 위해 쿼리문 작성해주기
 		PreparedStatement ps = conn.prepareStatement(query);
 		
@@ -163,7 +161,7 @@ public class MemberDAO implements MemberDAOTemplate{
 	
 	
 	@Override
-	public void UpdateServlet(MemberDTO dto) throws SQLException {
+	public void Servlet(MemberDTO dto) throws SQLException {
 		Connection conn = getConnection();
 		
 		String query = "UPDATE MEMBER SET PASSWORD=?, NAME=?, ADDRESS=? WHERE ID=?";
@@ -202,6 +200,12 @@ public class MemberDAO implements MemberDAOTemplate{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void UpdateServlet(MemberDTO dto) throws SQLException {
+		// TODO Auto-generated method stub
+		
 	}
 }
 	

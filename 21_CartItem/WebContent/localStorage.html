@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Local Storage TEST</h1>
+	
+	<button onclick="add()">추가</button>
+	<button onclick="view()">보기</button>
+	<button onclick="remove()">삭제</button>
+	
+	<div id="resultView"></div>
+	
+	<script>
+	
+		function add() {
+			localStorage.setItem("test","Item1");
+		}
+		
+		function view() {
+			document.querySelector("#resultView").innerHTML = localStorage.getItem("test");
+		}
+		//키값 먼저 삭제되고 jquery화면이랑 실제 처리되는 부분이 달라서 새로고침을 해야됨
+		function remove() {
+			localStorage.removeItem("test");
+			//같이 삭제가능한 함수 작성
+			location.reload();
+		}
+		
+		
+	</script>
+	
+</body>
+</html>
