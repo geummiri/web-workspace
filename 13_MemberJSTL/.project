@@ -28,27 +28,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/WEB-INF/lib/jstl.jar</name>
-			<type>1</type>
-			<location>C:/Users/user1/Downloads/jstl.jar</location>
-		</link>
-		<link>
-			<name>WebContent/WEB-INF/lib/standard.jar</name>
-			<type>1</type>
-			<location>C:/Users/user1/Downloads/standard.jar</location>
-		</link>
-	</linkedResources>
-	<filteredResources>
-		<filter>
-			<id>1692318726567</id>
-			<name></name>
-			<type>30</type>
-			<matcher>
-				<id>org.eclipse.core.resources.regexFilterMatcher</id>
-				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
-			</matcher>
-		</filter>
-	</filteredResources>
 </projectDescription>
