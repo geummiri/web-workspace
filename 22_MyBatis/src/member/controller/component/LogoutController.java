@@ -11,7 +11,6 @@ public class LogoutController implements Controller {
 
 	@Override
 	public ModelAndView handle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("vo")!=null) {

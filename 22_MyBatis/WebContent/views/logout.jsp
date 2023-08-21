@@ -15,15 +15,15 @@
 	session.invalidate(); 
 	
 	--%>
-<body onload="return logout()">
-	
-	<script>
-		function logout() {
-			alert('Logout!');
-			location.href = "../index.jsp";
-		}
-	</script>
+<!--  body onload="return logout()">-->
 
+<body>
+	<script>
+		alert('Logout!');
+		location.href="/index.jsp";
+	</script>
+	
+</body>
 </body>
 
 	<%-- } --%>

@@ -36,7 +36,7 @@ public class HandlerMapping {
 			controller = new UpdateController();
 		}
 		
-		else if(command.equals("allshow.do")) {
+		else if(command.equals("allShow.do")) {
 			controller = new AllMemberController();
 		}
 		

@@ -12,7 +12,6 @@
 	
 <c:choose>
 <c:when test="${!empty vo}">
-	
 	<h1>수정 정보</h1>
 	<ul>
 		<li>${vo.id} 님의 정보를 수정했습니다.</li>
@@ -23,7 +22,7 @@
 <c:otherwise>
 
 	<h3>수정실패</h3>
-	<a href="/login.html">login.html</a>
+	<a href="login.html">login.html</a>
 	
 </c:otherwise>
 </c:choose>

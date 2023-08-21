@@ -18,6 +18,12 @@
 		NAME : <input type="text" value="${vo.name}" name="name"> <br>
 		ADDRESS : <input type="text" value="${vo.address}" name="address"> <br>
 		<input type="submit" value="정보수정">
+	</form>	
+	<form action="/update.do" method="post">
+		<h2>비밀번호만 수정</h2>
+		ID : <input type="text" value="${vo.id}" name="id" readonly> <br>
+		PASSWORD : <input type="password" value="${vo.password}" name="password"> <br>
+		<input type="submit" value="정보수정">
 	</form>
 	
 </body>
