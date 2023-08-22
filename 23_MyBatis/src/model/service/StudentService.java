@@ -14,6 +14,7 @@ public class StudentService {
 	public List<StudentVO> showStudent(String word) throws SQLException {
 		SqlSession sqlSession = Template.getSqlSession();
 		List<StudentVO> student = StudentDAO.getInstance().showStudent(sqlSession, word);
+		sqlSession.close();
 		return student;
 	}
 }

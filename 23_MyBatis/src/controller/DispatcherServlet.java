@@ -12,17 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//hidden 값으로 들어온 요청을 받지 않고, 들어온 요청의 주소를 직접 인식시킨다.
+		// hidden 값으로 들어온 요청을 받지 않고, 
+		// 들어온 요청의 주소를 직접 인식시킨다.
 		String requestURI = request.getRequestURI();
-		System.out.println("RequestURI :: " + requestURI );
+		System.out.println("RequestURI :: " + requestURI);
 		
-		String [] requestURIList = requestURI.split("/");
+		String[] requestURIList = requestURI.split("/");
 		System.out.println("RequestURIList :: " + Arrays.toString(requestURIList));
-		String command = requestURIList[requestURIList.length-1];
 		
+		String command = requestURIList[requestURIList.length-1];
 		System.out.println("Command :: " + command);
 		
 		Controller controller = HandlerMapping.getInstance().createController(command);
@@ -30,7 +30,7 @@ public class DispatcherServlet extends HttpServlet {
 		try {
 			ModelAndView mv = controller.handle(request, response);
 			
-			if(mv!=null) { //isRedirect는 boolean
+			if(mv!=null) {
 				if(mv.isRedirect()) {
 					response.sendRedirect(mv.getPath());
 				} else {
@@ -42,8 +42,7 @@ public class DispatcherServlet extends HttpServlet {
 		}
 		
 	}
-	
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

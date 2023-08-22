@@ -1,65 +1,65 @@
 package model.vo;
 
 public class StudentVO {
-	private int studentNo;
+	private String studentNo;
 	private String studentName;
 	private String studentAddress;
 	
 	//다른 객체 가져오기
 	private DepartmentVO department;
 
-
 	public StudentVO() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public int getStudentNo() {
+	public StudentVO(String studentNo, String studentName, String studentAddress, DepartmentVO department) {
+		super();
+		this.studentNo = studentNo;
+		this.studentName = studentName;
+		this.studentAddress = studentAddress;
+		this.department = department;
+	}
+
+	public String getStudentNo() {
 		return studentNo;
 	}
 
-
-	public void setStudentNo(int studentNo) {
+	public void setStudentNo(String studentNo) {
 		this.studentNo = studentNo;
 	}
-
 
 	public String getStudentName() {
 		return studentName;
 	}
 
-
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-
 
 	public String getStudentAddress() {
 		return studentAddress;
 	}
 
-
 	public void setStudentAddress(String studentAddress) {
 		this.studentAddress = studentAddress;
 	}
-
 
 	public DepartmentVO getDepartment() {
 		return department;
 	}
 
-
 	public void setDepartment(DepartmentVO department) {
 		this.department = department;
 	}
 
-
-	public StudentVO(int studentNo, String studentName, String studentAddress, DepartmentVO department) {
-		super();
-		this.studentNo = studentNo;
-		this.studentName = studentName;
-		this.studentAddress = studentAddress;
-		this.department = department;
-	
+	@Override
+	public String toString() {
+		return "StudentVO [studentNo=" + studentNo + ", studentName=" + studentName + ", studentAddress="
+				+ studentAddress + ", department=" + department + "]";
 	}
+
+
+	
 	
 }

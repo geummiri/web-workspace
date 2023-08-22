@@ -11,18 +11,22 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(value= {"/*"}, initParams=@WebInitParam(name="encoding", value="utf-8"))
+@WebFilter(value = {"/*"}, initParams = @WebInitParam(name = "encoding", value = "utf-8"))
+public class EncodingFilter extends HttpFilter {
 
-public class EncodingFilter extends HttpFilter implements Filter {
-       
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		
-		chain.doFilter(request, response);
-	}
+    @Override
+    protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 
+        request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
 
+        chain.doFilter(request, response);
+    }
 }
+
+
+
+

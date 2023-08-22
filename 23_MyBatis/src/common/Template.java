@@ -29,7 +29,9 @@ public class Template {
 			SqlSessionFactory factory = builder.build(stream);
 			
 			// 3. SqlSessionFactory 객체의 openSession() 메소드를 통해 SqlSession 객체 생성
+			//autocommit을 방지해주기 때문에 false로 해준다
 			session = factory.openSession(false);
+			System.out.println(session);
 			
 			
 		} catch (IOException e) {
