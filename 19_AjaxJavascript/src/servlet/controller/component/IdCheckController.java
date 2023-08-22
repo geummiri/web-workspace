@@ -9,6 +9,7 @@ import servlet.controller.ModelAndView;
 import servlet.model.dao.MemberDAO;
 import servlet.model.vo.MemberVO;
 
+
 public class IdCheckController implements Controller{
 
 

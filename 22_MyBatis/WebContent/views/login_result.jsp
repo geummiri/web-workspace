@@ -12,7 +12,6 @@
 
 <%--
 	MemberDTO dto = (MemberDTO) session.getAttribute("dto"); 
-	if(dto!=null){
 --%>
 
 <c:choose>
