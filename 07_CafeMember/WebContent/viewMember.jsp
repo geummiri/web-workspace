@@ -18,7 +18,8 @@
 <body>
 
 		 
-	<%  String name = request.getParameter("name");
+	<%  
+	String name = request.getParameter("name");
 	//List<MemberVO> list =(List<MemberVO>)application.getAttribute("list");
 	List<MemberVO> list =(List<MemberVO>)request.getAttribute("list");
 	%>
