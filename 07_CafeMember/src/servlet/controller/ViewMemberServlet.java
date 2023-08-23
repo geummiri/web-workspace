@@ -28,8 +28,8 @@ public class ViewMemberServlet extends HttpServlet {
 		} catch (SQLException e) {}
 		
 		// 2. 바인딩
-		request.setAttribute("list", list);
-		
+			request.setAttribute("list", list);
+	
 		// 3. 네비게이션 --> viewMember.jsp
 		request.getRequestDispatcher("viewMember.jsp").forward(request, response);
 	}
