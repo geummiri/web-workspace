@@ -42,14 +42,24 @@
     <description></description>
     <display-name>ViewMemberServlet</display-name>
     <servlet-name>ViewMemberServlet</servlet-name>
-    <servlet-class>servlet.controller.ViewMemberServlet</servlet-class>
+    <servlet-class>/ViewMemberServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewMemberServlet</servlet-name>
-    <url-pattern>/ViewMemberServlet</url-pattern>
+    <url-pattern>/view</url-pattern>
   </servlet-mapping>
   <error-page>
-  	<error-code>404</error-code>
-  	<location>/404error.html</location>
+    <error-code>404</error-code>
+    <location>/404error.html</location>
   </error-page>
+  <servlet>
+    <description></description>
+    <display-name>EntranceSerlvet1</display-name>
+    <servlet-name>EntranceSerlvet1</servlet-name>
+    <servlet-class>servlet.controller.EntranceSerlvet1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EntranceSerlvet1</servlet-name>
+    <url-pattern>/EntranceSerlvet1</url-pattern>
+  </servlet-mapping>
 </web-app>

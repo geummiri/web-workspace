@@ -9,6 +9,7 @@ public class SqlSessionTemplate {
 	// mybatis-config.xml, ~-mapper.xml 파일 생성을 완료했다면,
 	// common 패키지를 만들어 싱글톤을 적용한 Template 클래스를 만들고,
 	// SqlSession을 반환해주는 static 메소드를 작성한다.
+	
 	public static SqlSession getSqlSession() {
 		SqlSession session = null;
 		

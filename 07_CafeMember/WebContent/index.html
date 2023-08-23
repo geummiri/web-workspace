@@ -32,13 +32,8 @@
   <body>
     <div class="container">
       <h2>Register Cafe Member</h2>
-
-      <form
-        action="entrance"
-        method="post"
-        onsubmit="return checkData()"
-        name="frm"
-      >
+	<form action="entrance" method="post" onsubmit="return checkData()" name="frm1">
+	
         <div class="mb-3">
           <label for="name" class="form-label">이름</label>
           <input
@@ -92,18 +87,22 @@
         }
       }
   	  */ 
+  	  
+  	  function checkData() {
+  		  
+  		  if(isNaN(age)) {
+  			  alert('숫자입력');
+  			  return false;
+  		  } else {
+  			  return true;
+  		  }
+  		  
+  	  }
 	   	 console.log(document.frm);
 	  	  function checkData() {
 	  	 //const regExp = /^[0-9]+$/;
 	  	 const age = document.frm.age.value;
-	  	 
-	  	 if(isNaN(age)) {
-	  		 alert('숫자로 입력해주세요!');
-	  		 return false;
-	  	 } else {
-	  		 return true;
-	  	 }
-	  	 
+	  	
 	     //if(regExp.test(age)) {
 		 //return true;
 		 //} else {

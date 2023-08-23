@@ -25,6 +25,7 @@ public class MemberDAO implements MemberDAOTemplate{
 	 * */
 	
 	private static MemberDAO dao = new MemberDAO();
+	
 	private MemberDAO() {
 		try {
 			Class.forName(ServerInfo.DRIVER_NAME);

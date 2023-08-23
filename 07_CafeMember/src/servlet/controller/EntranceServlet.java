@@ -57,9 +57,10 @@ public class EntranceServlet extends HttpServlet {
 		} catch (SQLException e) {}
 			
 //		 내비게이션 -> ViewMemberServlet(PrintWriter의 다른 방법)
-		RequestDispatcher rdp = request.getRequestDispatcher("viewMember.jsp");
-		rdp.forward(request, response); //이때 페이지로 이동함
-//		request.getRequestDispatcher("view").forward(request, response);
+		//response.sendRedirect("viewMember.jsp");
+//		RequestDispatcher rdp = request.getRequestDispatcher("viewMember.jsp");
+//		rdp.forward(request, response); //이때 페이지로 이동함
+        request.getRequestDispatcher("view").forward(request, response);
 //		PrintWriter out = response.getWriter();
 //		out.println("<a href='viewMember.jsp'>결과 확인하러 가기</a>");
 //		out.close();

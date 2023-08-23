@@ -1,17 +1,19 @@
 package servlet.controller;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import servlet.model.MemberDAO;
 import servlet.model.MemberVO;
-
+@WebServlet("/view")
 public class ViewMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -19,6 +21,8 @@ public class ViewMemberServlet extends HttpServlet {
 		// 1. DAO 리턴 받기
 		MemberDAO dao = new MemberDAO();
 		ArrayList<MemberVO> list = null;
+		
+		
 		try {
 			list = dao.showAllMember();
 		} catch (SQLException e) {}

@@ -72,7 +72,6 @@ public class MemberDAO implements MemberDAOTemplate{
 	public void insertMember(MemberVO vo) throws SQLException {
 		
 		Connection conn = getConnection();
-		
 		String query = "INSERT INTO MEMBER(NAME, AGE,ADDR) VALUES (?, ?, ?)";
 		PreparedStatement ps = conn.prepareStatement(query);
 				
@@ -125,24 +124,42 @@ public class MemberDAO implements MemberDAOTemplate{
 	public MemberVO findByNameMember(String name) throws SQLException {
 		
 		Connection conn = getConnection();
-//		String query = "SELECT NAME FROM MEMBER WHERE NAME = ?";
-//		PreparedStatement ps = conn.prepareStatement(query);
-//		
-//		ResultSet rs = ps.executeQuery();
-//		return (MemberVO) rs;
-		// 3. Statement 객체 생성
+		
 		String query = "SELECT * FROM MEMBER WHERE NAME=?";
+		
 		PreparedStatement ps = conn.prepareStatement(query);
+		
 		ps.setString(1, name);
 		
-		// 4. 쿼리문 실행
-		MemberVO vo = null;
 		ResultSet rs = ps.executeQuery();
-		if(rs.next()) {
-			vo = new MemberVO(rs.getString("name"), 
-					rs.getInt("age"), rs.getString("addr"));
-		}
 		
+		MemberVO vo = null;
+		
+		if(rs.next()) {
+			vo = new MemberVO(rs.getString("name"),
+					rs.getInt("age"),
+					rs.getString("addr"));
+		}
+//		
+//		Connection conn = getConnection();
+////		String query = "SELECT NAME FROM MEMBER WHERE NAME = ?";
+////		PreparedStatement ps = conn.prepareStatement(query);
+////		
+////		ResultSet rs = ps.executeQuery();
+////		return (MemberVO) rs;
+//		// 3. Statement 객체 생성
+//		String query = "SELECT * FROM MEMBER WHERE NAME=?";
+//		PreparedStatement ps = conn.prepareStatement(query);
+//		ps.setString(1, name);
+//		
+//		// 4. 쿼리문 실행
+//		MemberVO vo = null;
+//		ResultSet rs = ps.executeQuery();
+//		if(rs.next()) {
+//			vo = new MemberVO(rs.getString("name"), 
+//					rs.getInt("age"), rs.getString("addr"));
+//		}
+//		
 		closeAll(rs, ps, conn);
 		return vo;
 		

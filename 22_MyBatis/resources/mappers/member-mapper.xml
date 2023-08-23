@@ -2,10 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
 	<!-- namespace : 해당 mapper 파일의 고유한 별칭 -->
-	
 	<!-- resultMap : 조회한 결과를 객체와 Row 간의 1:1 매칭이 아닌, 
 					원하는 객체의 필드에 담아 반환하고자 할 때 사용 -->
-	
 	 <resultMap type="Member" id="memberMap">
 	 		<!-- 
 	 		property = 자바 필드 변수 이름/ column = DB 해당 컬럼
@@ -104,6 +102,8 @@
 	    <foreach collection="list" item="item" open="(" close=")" separator=",">
 	        #{item}
 	    </foreach>
+	    
+	   
 		</select>
 	
 		<!--
@@ -175,7 +175,6 @@
 		 </trim>
 		 WHERE id=#{id}
 	</update> 
-	
 	
 	<!--  set 방식
 	<update id="updateMember" parameterType="Member">

@@ -21,6 +21,16 @@ public class MemberService {
 		return result;
 	}
 
+	
+	public int register(MemberVO vo) {
+		
+		SqlSession sqlSession = SqlSessionTemplate.getSqlSession();
+		int result = MemberDAO.getInstance().registerMember(sqlSession, vo);
+		if(result>0) sqlSession.commit();
+		
+		sqlSession.close();
+		return result;
+	}
 	//showAllMember, findByIdMember, login, updateMember
 
 	public List<MemberVO> showAllMember() {
@@ -54,6 +64,8 @@ public class MemberService {
 		sqlSession.close();
 		return result;
 	}
+	
+
 }
 
 
