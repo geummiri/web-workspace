@@ -13,7 +13,7 @@ import edu.kh.test.user.model.dao.UserDAO;
 import edu.kh.test.user.model.vo.UserDTO;
 
 
-@WebServlet("selectUser")
+@WebServlet("/selectUser")
 public class SelectUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,9 +31,9 @@ public class SelectUserServlet extends HttpServlet {
 		
 		if(dto!=null) {
 			request.setAttribute("dto", dto);
-			request.getRequestDispatcher("views/searchSuccess.jsp");
+			request.getRequestDispatcher("WEB-INF/views/searchSuccess.jsp").forward(request, response);
 		} else {
-			response.sendRedirect("views/searchFail.jsp");
+			request.getRequestDispatcher("WEB-INF/views/searchFail.jsp").forward(request, response);
 		}
 		
 	}

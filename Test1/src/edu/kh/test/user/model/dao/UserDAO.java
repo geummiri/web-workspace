@@ -53,11 +53,12 @@ public class UserDAO {
 		
 		if(rs.next()) {
 			dto = new UserDTO();
-			dto.setUserNo(rs.getInt("userNo"));
-			dto.setUserId(rs.getString("userId"));
-			dto.setUserName(rs.getString("userName"));
-			dto.setUserAge(rs.getInt("userAge"));
+			dto.setUserNo(userNo);
+			dto.setUserId(rs.getString("user_id"));
+			dto.setUserName(rs.getString("user_name"));
+			dto.setUserAge(rs.getInt("user_age"));
 		}
+		System.out.println(dto);
 		closeAll(rs, ps, conn);
 		return dto;
 	}

@@ -8,8 +8,8 @@
 </head>
 <body>
 	<h2>회원 정보 조회(회원 번호 검색)</h2>
-	<form action="selectUser">
-	<input type="text" name="userNo"><input type="submit" value="조회">
+	<form action="/selectUser">
+	<input type="text" name="userNo" placeholder="회원번호입력"><input type="submit" value="조회">
 	</form>
 </body>
 </html>
