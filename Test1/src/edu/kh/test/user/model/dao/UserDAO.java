@@ -53,10 +53,17 @@ public class UserDAO {
 		
 		if(rs.next()) {
 			dto = new UserDTO();
+<<<<<<< Updated upstream
 			dto.setUserNo(userNo);
 			dto.setUserId(rs.getString("user_id"));
 			dto.setUserName(rs.getString("user_name"));
 			dto.setUserAge(rs.getInt("user_age"));
+=======
+			dto.setUserNo(rs.getInt("user_No"));
+			dto.setUserId(rs.getString("user_Id"));
+			dto.setUserName(rs.getString("user_Name"));
+			dto.setUserAge(rs.getInt("user_Age"));
+>>>>>>> Stashed changes
 		}
 		System.out.println(dto);
 		closeAll(rs, ps, conn);

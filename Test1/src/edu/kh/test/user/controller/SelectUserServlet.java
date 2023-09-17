@@ -33,8 +33,13 @@ public class SelectUserServlet extends HttpServlet {
 			request.setAttribute("dto", dto);
 			request.getRequestDispatcher("WEB-INF/views/searchSuccess.jsp").forward(request, response);
 		} else {
+<<<<<<< Updated upstream
 			request.getRequestDispatcher("WEB-INF/views/searchFail.jsp").forward(request, response);
 		}
+=======
+			request.getRequestDispatcher("views/searchFail.jsp");
+		} else {		}
+>>>>>>> Stashed changes
 		
 	}
 
